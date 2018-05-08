@@ -20,6 +20,14 @@ public class Racional {
 	 * Multiplicador para el conversor. <br>
 	 */
 	private int multiplicador;
+	/**
+	 * Pivot del mcd. <br>
+	 */
+	private int pivot;
+	/**
+	 * Máximo como un divisor. <br>
+	 */
+	private int mcd;
 
 	/**
 	 * Crea un número del tipo racional, con nominador y deominador. <br>
@@ -46,9 +54,6 @@ public class Racional {
 			this.numerador = (int) (this.numero * this.multiplicador);
 			this.denominador = this.multiplicador;
 			this.multiplicador = 10;
-			if (this.denominador < 0) {
-				this.invertirSigno();
-			}
 		}
 	}
 
@@ -64,9 +69,6 @@ public class Racional {
 			this.numerador = (int) (this.numero * this.multiplicador);
 			this.denominador = this.multiplicador;
 			this.multiplicador = 10;
-			if (this.denominador < 0) {
-				this.invertirSigno();
-			}
 		}
 	}
 
@@ -106,25 +108,29 @@ public class Racional {
 	 * Simplifica los componentes del racional de manera recursiva. <br>
 	 */
 	public void simplificarRecursivo() {
-		int maximo, mcd, pivot = 2;
+		int maximo;
+		this.mcd = 0;
 		if (this.numerador < this.denominador) {
 			maximo = this.denominador;
 		} else {
 			maximo = this.numerador;
 		}
-
+		this.obtenerMCDRecursivo(maximo);
+		if (this.mcd != 0) {
+			this.denominador /= this.mcd;
+			this.numerador /= this.mcd;
+		}
 	}
 
-	private void obtenerMCDRecursivo() {
-
-	}
-
-	/**
-	 * Inviertoel signo de los números. <br>
-	 */
-	private void invertirSigno() {
-		this.denominador *= (-1);
-		this.numerador *= (-1);
+	private void obtenerMCDRecursivo(final int maximo) {
+		if (this.pivot <= Math.abs(maximo)) {
+			return;
+		}
+		if (((this.numerador % pivot) == 0) && ((this.denominador % this.pivot) == 0)) {
+			this.mcd = this.pivot;
+		}
+		pivot++;
+		obtenerMCDRecursivo(maximo);
 	}
 
 	/**

@@ -13,7 +13,7 @@ public class TestRacional {
 		racional.convertirRacionalIterativo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
-		assertEquals(15, racional.getNominador());
+		assertEquals(15, racional.getNumerador());
 		assertEquals(10, racional.getDenominador());
 		System.out.println("Convertir iterativo: " + diff);
 	}
@@ -25,7 +25,7 @@ public class TestRacional {
 		racional.convertirRacionalRecursivo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
-		assertEquals(15, racional.getNominador());
+		assertEquals(15, racional.getNumerador());
 		assertEquals(10, racional.getDenominador());
 		System.out.println("Convertir recursivo: " + diff);
 	}
@@ -38,7 +38,7 @@ public class TestRacional {
 		racional.simplificarIterativo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
-		assertEquals(3, racional.getNominador());
+		assertEquals(3, racional.getNumerador());
 		assertEquals(2, racional.getDenominador());
 		System.out.println("Convertir iterativo - Simplificar iterativo: " + diff);
 	}
@@ -51,11 +51,11 @@ public class TestRacional {
 		racional.simplificarIterativo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
-		assertEquals(3, racional.getNominador());
+		assertEquals(3, racional.getNumerador());
 		assertEquals(2, racional.getDenominador());
 		System.out.println("Convertir recursivo - Simplificar iterativo: " + diff);
 	}
-	
+
 	@Test
 	public void testCISR() {
 		Racional racional = new Racional(1.5);
@@ -64,7 +64,7 @@ public class TestRacional {
 		racional.simplificarIterativo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
-		assertEquals(3, racional.getNominador());
+		assertEquals(3, racional.getNumerador());
 		assertEquals(2, racional.getDenominador());
 		System.out.println("Convertir iterativo - Simplificar recursivo: " + diff);
 	}
@@ -77,7 +77,7 @@ public class TestRacional {
 		racional.simplificarIterativo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
-		assertEquals(3, racional.getNominador());
+		assertEquals(3, racional.getNumerador());
 		assertEquals(2, racional.getDenominador());
 		System.out.println("Convertir recursivo - Simplificar recursivo: " + diff);
 	}
