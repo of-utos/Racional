@@ -44,7 +44,7 @@ public class TestRacionalRendimiento3 {
 	public void testCISR3() {
 		long tIni = System.nanoTime();
 		racional.convertirRacionalIterativo();
-		racional.simplificarIterativo();
+		racional.simplificarRecursivo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
 		assertEquals(numerador, racional.getNumerador());
@@ -56,7 +56,7 @@ public class TestRacionalRendimiento3 {
 	public void testCRSR3() {
 		long tIni = System.nanoTime();
 		racional.convertirRacionalRecursivo();
-		racional.simplificarIterativo();
+		racional.simplificarRecursivo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
 		assertEquals(numerador, racional.getNumerador());

@@ -38,6 +38,8 @@ public class Racional {
 	public Racional(final double numero) {
 		this.numero = numero;
 		this.multiplicador = 10;
+		this.pivot = 2;
+		this.mcd = 0;
 	}
 
 	/**
@@ -109,7 +111,6 @@ public class Racional {
 	 */
 	public void simplificarRecursivo() {
 		int maximo;
-		this.mcd = 0;
 		if (this.numerador < this.denominador) {
 			maximo = this.denominador;
 		} else {
@@ -120,17 +121,18 @@ public class Racional {
 			this.denominador /= this.mcd;
 			this.numerador /= this.mcd;
 		}
+		this.pivot = 2;
+		this.mcd = 0;
 	}
 
 	private void obtenerMCDRecursivo(final int maximo) {
 		if (this.pivot <= Math.abs(maximo)) {
-			return;
+			if (((this.numerador % pivot) == 0) && ((this.denominador % this.pivot) == 0)) {
+				this.mcd = this.pivot;
+			}
+			pivot++;
+			obtenerMCDRecursivo(maximo);
 		}
-		if (((this.numerador % pivot) == 0) && ((this.denominador % this.pivot) == 0)) {
-			this.mcd = this.pivot;
-		}
-		pivot++;
-		obtenerMCDRecursivo(maximo);
 	}
 
 	/**

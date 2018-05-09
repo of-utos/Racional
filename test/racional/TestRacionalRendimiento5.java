@@ -3,6 +3,7 @@ package racional;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestRacionalRendimiento5 {
@@ -40,11 +41,11 @@ public class TestRacionalRendimiento5 {
 		System.out.println("Convertir recursivo - Simplificar iterativo 5: " + diff);
 	}
 
-	@Test
+	@Ignore
 	public void testCISR5() {
 		long tIni = System.nanoTime();
 		racional.convertirRacionalIterativo();
-		racional.simplificarIterativo();
+		racional.simplificarRecursivo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
 		assertEquals(numerador, racional.getNumerador());
@@ -52,11 +53,11 @@ public class TestRacionalRendimiento5 {
 		System.out.println("Convertir iterativo - Simplificar recursivo 5: " + diff);
 	}
 
-	@Test
+	@Ignore
 	public void testCRSR5() {
 		long tIni = System.nanoTime();
 		racional.convertirRacionalRecursivo();
-		racional.simplificarIterativo();
+		racional.simplificarRecursivo();
 		long tFin = System.nanoTime();
 		long diff = tFin - tIni;
 		assertEquals(numerador, racional.getNumerador());
